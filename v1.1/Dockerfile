@@ -15,4 +15,5 @@ CMD Start-Service W3SVC; `
 
 WORKDIR C:\
 COPY UpgradeSample-1.1.0.0.msi .
-RUN msiexec /i c:\UpgradeSample-1.1.0.0.msi RELEASENAME=2017.11 /qn
+
+RUN Start-Process msiexec.exe -ArgumentList '/i', 'C:\UpgradeSample-1.1.0.0.msi', 'RELEASENAME=2017.11', '/quiet', '/norestart' -NoNewWindow -Wait
